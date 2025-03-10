@@ -2,7 +2,7 @@
 
 chrome = {};
 chrome.extension = function() {};
-chrome.extension.onMessage = function() {};
-chrome.extension.onMessage.addListener = function() {};
+chrome.runtime.onMessage = function() {};
+chrome.runtime.onMessage.addListener = function() {};
 chrome.windows = function() {};
 chrome.windows.create = function() {};
