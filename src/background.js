@@ -34,15 +34,16 @@ function openTab(urls, delay, windowId, openerTabId, tabPosition, closeTime) {
 
 	chrome.tabs.create(obj, function(tab) {
 		if(closeTime > 0) {
-			self.setTimeout(function() {
+			window.setTimeout(function() {
 				chrome.tabs.remove(tab.id);
 			}, closeTime*1000);
 		}
 	});
 
 	if(urls.length > 0) {
-		self.setTimeout(function() {openTab(urls, delay, windowId, openerTabId, tabPosition, closeTime)}, delay*1000);
+		window.setTimeout(function() {openTab(urls, delay, windowId, openerTabId, tabPosition, closeTime)}, delay*1000);
 	}
+
 }
 
 async function copyToClipboard(text) {

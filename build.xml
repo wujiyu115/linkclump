@@ -1,8 +1,8 @@
 <project name="Linkclump" default="build" basedir=".">
 	
 	<!-- ant has no if/else statments so have to use this if_.. format -->
-	<target name="build" depends="init,properties,clean,test_if_mac,test_if_not_mac">
-		<zip destfile="build/${zip_name}" basedir="src" />
+	<target name="build" depends="properties,clean,test_if_mac,test_if_not_mac">
+		<zip destfile="${zip_name}" basedir="src" />
 	</target>
 	
 	<target name="properties">
@@ -19,14 +19,10 @@
 		<echo>Zip Name: ${zip_name}</echo>
 	</target>
 	
-	<target name="init">
-		<mkdir dir="build" />
-	</target>
-	
 	<target name="clean">
 		<echo>Deleting old zip file ${zip_name}</echo>
 		<delete>
-			<fileset dir="build" includes="${zip_name}" />
+			<fileset dir="." includes="${zip_name}" />
 		</delete>
 	</target>
 	
